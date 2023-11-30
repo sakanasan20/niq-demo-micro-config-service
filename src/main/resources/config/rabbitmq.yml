@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: niq.tw
+    port: 5672
+    username: micro-service
+    password: mbBGBysyDYZwXSsX

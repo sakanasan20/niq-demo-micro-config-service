@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://niq.tw:3306/niq_dev
+    username: niq.admin
+    password: niq.admin
+  jpa:
+    hibernate:
+      ddl-auto: update
