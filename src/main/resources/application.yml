@@ -1,0 +1,30 @@
+server:
+  port: ${SERVER_PORT}
+spring:
+  application:
+    name: ${APP_NAME}
+  profiles:
+    active:
+    - native
+  cloud:
+    config:
+      server:
+#        git:
+#          uri: 
+#          username: 
+#          password: 
+#          clone-on-start: true
+#          default-label: main
+        native:
+          search-locations: classpath:/config
+#          search-locations: file://${user.home}/Desktop/config
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USR}
+    password: ${RABBITMQ_PWD}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh
