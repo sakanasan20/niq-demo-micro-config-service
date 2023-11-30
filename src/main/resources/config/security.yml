@@ -1,0 +1,7 @@
+tw:
+  niq:
+    token:
+      secret: AaMckyLM973x9qPw9u5G7k7EYxYn0f0jP0FERRbwbsEEUKvpkYWudx57AJRgTbh3
+      expiration: 3600000
+    login:
+      url: /api/v1/users/login

@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+      routes:
+      - id: users-service-login
+        uri: lb://users-service
+        predicates:
+        - Path=/api/v1/users/login
+        - Method=POST
+        filters:
+        - RemoveRequestHeader=Cookie
+      - id: users-service
+        uri: lb://users-service
+        predicates:
+        - Path=/api/v1/users/**
+        - Method=GET,POST,PUT,DELETE
+        - Header=Authorization, Bearer (.*)
+        filters:
+        - RemoveRequestHeader=Cookie
+        - RewritePath=/users-service/(?<segment>.*), /$\{segment}
+        - CustomAuthorizationHeaderFilter
