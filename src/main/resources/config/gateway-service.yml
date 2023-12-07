@@ -1,19 +1,22 @@
 spring:
   cloud:
     gateway:
-#      discovery:
-#        locator:
-#          enabled: true
-#          lower-case-service-id: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
+      # Users Service Actuator
       - id: users-service-actuator
         uri: lb://users-service
         predicates:
-        - Path=/users-service/actuator/**
+        - Path=/actuator/**
         - Method=GET
         filters:
         - RemoveRequestHeader=Cookie
         - RewritePath=/users-service/(?<segment>.*), /$\{segment}
+        
+      # Users Service Login
       - id: users-service-login
         uri: lb://users-service
         predicates:
@@ -22,6 +25,8 @@ spring:
         filters:
         - RemoveRequestHeader=Cookie
         - RewritePath=/users-service/(?<segment>.*), /$\{segment}
+        
+      # Users Service
       - id: users-service
         uri: lb://users-service
         predicates:
@@ -32,6 +37,27 @@ spring:
         - RemoveRequestHeader=Cookie
         - RewritePath=/users-service/(?<segment>.*), /$\{segment}
         - CustomAuthorizationHeaderFilter
+      
+      # Report Service Actuator
+      - id: report-service-actuator
+        uri: lb://report-service
+        predicates:
+        - Path=/actuator/**
+        - Method=GET
+        filters:
+        - RemoveRequestHeader=Cookie
+        - RewritePath=/report-service/(?<segment>.*), /$\{segment}
+      
+      # Report Service
+      - id: report-service
+        uri: lb://report-service
+        predicates:
+        - Path=/api/v1/reports/**
+        - Method=GET,POST,PUT,DELETE
+        filters:
+        - RemoveRequestHeader=Cookie
+        - RewritePath=/report-service/(?<segment>.*), /$\{segment}
+        
 management:
   endpoint:
     gateway:

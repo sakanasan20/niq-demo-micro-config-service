@@ -4,4 +4,4 @@ tw:
       secret: '{cipher}4b7b6390f80a4f3fab6f55ae108c04dbdfa6c90fc9e548a6bd9a60db35329eac586ea9dc2fa662fb5329464c2bdfb8ecaff45dd3e7bceadaa59c7ac6c4b77c4d1a1751ee36bbf4d00b8e9342238087f4551bfa58821e48056bf89f121b8f7a5a'
       expiration: 3600000
     login:
-      url: /api/v1/users/login
+      url: '/api/v1/users/login'

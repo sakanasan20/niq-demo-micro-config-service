@@ -1,4 +1,14 @@
+logging:
+  level:
+    tw:
+      niq:
+        micro:
+          client:
+            ReportServiceClient: DEBUG
 management:
+  health:
+    circuitbreakers:
+      enabled: true
   endpoint:
     health:
       enabled: true
@@ -6,4 +16,24 @@ management:
   endpoints:
     web:
       exposure:
-        include: beans,health,mappings,httpexchanges
+        include: '*'
+resilience4j:
+  circuitbreaker:
+    circuit-breaker-aspect-order: 1
+    instances:
+      report-service:
+        failure-rate-threshold: 50
+        authmatic-transition-from-open-to-half-open-enbaled: true
+        wait-duration-in-open-state: 10s
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        event-consumer-buffer-size: 10
+  retry:
+    retry-aspect-order: 2
+    instances:
+      report-service:
+        max-attempts: 3
+        wait-duration: 2s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 5
