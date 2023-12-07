@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: niq.tw
+    host: '{cipher}b05c79cf7187a04849a923c1c93a13c53e7a21768a078d9167b4070505faca9b'
     port: 5672
-    username: micro-service
-    password: mbBGBysyDYZwXSsX
+    username: '{cipher}11ad980828b70c75a110a871b865fd4ca4229af084e020660657c3b0258faec4'
+    password: '{cipher}fc58cea996e8f890e9b283a76508edcef114ace8e61c77d56b71baa3e531eb6272e7478a7820cb6ab55066702a57337f'

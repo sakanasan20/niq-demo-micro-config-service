@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://niq.tw:3306/niq_dev
-    username: niq.admin
-    password: niq.admin
+    url: '{cipher}51d28b9b95574aff17a7a6843654ed99c779edc24171cc965011d103abb5c005e6eeeac3aa73e699bcf18641979ce8cc3298407b26e6ac93cc63fedf1b673c4b'
+    username: '{cipher}ab35f18c37573a29c5e52e10c2209e5e1bb3bdce7a9a157dacf5c96de678c9f3'
+    password: '{cipher}4a698d4b82a797834cb029ec8cb1a2a82b7f72b9d591ec15103112f36237ebe4'
   jpa:
     hibernate:
       ddl-auto: update
