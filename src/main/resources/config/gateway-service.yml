@@ -6,6 +6,14 @@ spring:
 #          enabled: true
 #          lower-case-service-id: true
       routes:
+      - id: users-service-actuator
+        uri: lb://users-service
+        predicates:
+        - Path=/users-service/actuator/**
+        - Method=GET
+        filters:
+        - RemoveRequestHeader=Cookie
+        - RewritePath=/users-service/(?<segment>.*), /$\{segment}
       - id: users-service-login
         uri: lb://users-service
         predicates:
@@ -13,6 +21,7 @@ spring:
         - Method=POST
         filters:
         - RemoveRequestHeader=Cookie
+        - RewritePath=/users-service/(?<segment>.*), /$\{segment}
       - id: users-service
         uri: lb://users-service
         predicates:
@@ -23,3 +32,11 @@ spring:
         - RemoveRequestHeader=Cookie
         - RewritePath=/users-service/(?<segment>.*), /$\{segment}
         - CustomAuthorizationHeaderFilter
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health,mappings
