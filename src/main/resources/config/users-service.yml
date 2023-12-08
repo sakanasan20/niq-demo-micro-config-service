@@ -1,10 +1,10 @@
 logging:
+  pattern:
+    level: '%5p [${spring.application.name}, %X{traceId:-}, %X{spanId:-}]'
   level:
     tw:
       niq:
-        micro:
-          client:
-            ReportServiceClient: DEBUG
+        micro: DEBUG
 management:
   health:
     circuitbreakers:
@@ -17,6 +17,9 @@ management:
     web:
       exposure:
         include: '*'
+  tracing:
+    sampling:
+      probability: 1
 resilience4j:
   circuitbreaker:
     circuit-breaker-aspect-order: 1
