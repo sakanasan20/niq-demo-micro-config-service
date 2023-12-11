@@ -20,6 +20,9 @@ management:
   tracing:
     sampling:
       probability: 1
+  zipkin:
+    tracing:
+      endpoint: '{cipher}ef86daac91f053e929c6b049fdff68fe1433eac1f35d31f83942c8d93dd8c0f140b27513779c8f4ce3d2888faf4816aa'
 resilience4j:
   circuitbreaker:
     circuit-breaker-aspect-order: 1
