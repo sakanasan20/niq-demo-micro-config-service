@@ -20,9 +20,6 @@ management:
   tracing:
     sampling:
       probability: 1
-  zipkin:
-    tracing:
-      endpoint: '{cipher}ef86daac91f053e929c6b049fdff68fe1433eac1f35d31f83942c8d93dd8c0f140b27513779c8f4ce3d2888faf4816aa'
 resilience4j:
   circuitbreaker:
     circuit-breaker-aspect-order: 1
@@ -43,6 +40,3 @@ resilience4j:
         wait-duration: 2s
         enable-exponential-backoff: true
         exponential-backoff-multiplier: 5
-spring:
-  zipkin:
-    baseUrl: '{cipher}77f92cbb0b34025357c34a4df5a2eb11fcfa1a2c66400a2e18b7906c89e5c07f6e7dab56bd069b357a1228bf1bdbc601'
