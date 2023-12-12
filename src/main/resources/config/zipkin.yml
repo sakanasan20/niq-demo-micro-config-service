@@ -1,0 +1,22 @@
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: dev
+management:
+  zipkin:
+    tracing:
+      endpoint: '{cipher}f0bd4f06542f69086c93b08e12c758484bef84d21b5df3b9f1bc49c065b74ea528e8b24fb90774211b511de529bea25b98fff92961849f7fc99b9dbe5e8c94af'
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: prod
+management:
+  zipkin:
+    tracing:
+      endpoint: '{cipher}aab287e508915b2b2f63197c8ef0f4584eb0be6a58b1d213a4f4afadc2b824f2c330762f44edf22adb19be3de61b0fc5'

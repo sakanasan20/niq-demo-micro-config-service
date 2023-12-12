@@ -1,8 +1,8 @@
 server:
-  port: ${SERVER_PORT}
+  port: 9004
 spring:
   application:
-    name: ${APP_NAME}
+    name: config-service
   profiles:
     active:
     - native
@@ -19,10 +19,10 @@ spring:
           search-locations: classpath:/config
 #          search-locations: file://${user.home}/Desktop/config
   rabbitmq:
-    host: ${RABBITMQ_HOST}
-    port: ${RABBITMQ_PORT}
-    username: ${RABBITMQ_USR}
-    password: ${RABBITMQ_PWD}
+    host: '{cipher}07c6e5218ff50fd1d22b172323c68650240a5fd3f5cb717358b60c0009f2f8db'
+    port: 5672
+    username: '{cipher}cfc77304133ba7e0a1bd2ba18693626ba8251512c28ce3b10a0579dfd3917cf6'
+    password: '{cipher}2527625af3ac7a2c36391f801bf3164c527ce1c407d63f4d777ad996386ddbf11f078b6b422a16aa370d950bfecab53b'
 management:
   endpoints:
     web:

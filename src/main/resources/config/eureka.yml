@@ -1,0 +1,25 @@
+eureka:
+  instance:
+    instance-id: ${spring.application.name}-${spring.application.instance_id:${random.value}}:${server.port}
+    
+---
+
+spring:
+    config:
+        activate:
+            on-profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: '{cipher}24c8d3fa6156a5cbc71ccf659e67cf6cd454b60b42eabcef006c82253391d6915a454b8805a547abcedad0dc6acf7d31c0b1a460deb90ed88f60719b519d645e'
+      
+---
+
+spring:
+    config:
+        activate:
+            on-profile: prod
+eureka:
+  client:
+    service-url:
+      defaultZone: '{cipher}ea582e7482d442c0f591b69f377e1073bc96b7b376fc01fcd2c27a65ad4f39a1919ec9bb547e762956befadc13b3cf229bc20c8b4baa1b94feb4bb0134c5e012'

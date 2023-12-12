@@ -1,0 +1,33 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: discovery-service
+  security:
+    user:
+      name: '{cipher}3b683350c721a701c97bd9b83cf98576d91a3e8fcb48e0898a77c3936fba5d44'
+      password: '{cipher}bdcb1b56142f316af12f53ccbc8479ad43881659c910490a2b979096656d0029'
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: dev
+eureka:
+  instance:
+    hostname: localhost
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: prod
+eureka:
+  instance:
+    hostname: niq.tw
