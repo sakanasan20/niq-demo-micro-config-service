@@ -16,7 +16,7 @@ spring:
 #          clone-on-start: true
 #          default-label: main
         native:
-          search-locations: classpath:/config
+          search-locations: classpath:/config,classpath:/config/services
 #          search-locations: file://${user.home}/Desktop/config
   rabbitmq:
     host: '{cipher}07c6e5218ff50fd1d22b172323c68650240a5fd3f5cb717358b60c0009f2f8db'
