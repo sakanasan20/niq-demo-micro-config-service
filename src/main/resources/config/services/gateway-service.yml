@@ -58,9 +58,11 @@ spring:
         predicates:
         - Path=/api/v1/reports/**
         - Method=GET,POST,PUT,DELETE
+        - Header=Authorization, Bearer (.*)
         filters:
         - RemoveRequestHeader=Cookie
         - RewritePath=/report-service/(?<segment>.*), /$\{segment}
+        - CustomAuthorizationHeaderFilter
         
 management:
   endpoint:
